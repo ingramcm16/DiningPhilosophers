@@ -15,7 +15,15 @@ public class DiningPhilosophers {
 		
 		for(int i = 0; i < num; ++i){
 			forks[i] = new Object();
-			philosophers[i] = new Philosopher(i, i, (i+1) % num);
+			
+			int fork1 = i;
+			int fork2 = (i+1) % num;
+			
+			if(i==0){
+				philosophers[0] = new Philosopher(0,fork2,fork1);
+			}else{
+				philosophers[i] = new Philosopher(i,fork1,fork2);
+			}
 		}
 	}
 	
